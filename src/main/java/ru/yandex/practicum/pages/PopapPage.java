@@ -13,19 +13,16 @@ public class PopapPage {
     private final WebDriver driver;
 
     public PopapPage(WebDriver driver) {
-
         this.driver = driver;
     }
 
 
     public void clickButtonYes() {
-
         driver.findElement(buttonYes).click();
     }
 
 
     public void checkConfirmation() {
-
         Assert.assertTrue(driver.findElement(confirmation).isDisplayed());
     }
 

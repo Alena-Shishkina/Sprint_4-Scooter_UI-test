@@ -10,6 +10,7 @@ import ru.yandex.practicum.pages.util.EnvConfig;
 import java.time.Duration;
 
 public class ForWhomPage {
+
     //    Locators for the form for whom the scooter is
     private final By inputName = By.cssSelector("input[placeholder = '* Имя']");
     private final By inputSurname = By.cssSelector("input[placeholder = '* Фамилия']");
@@ -22,7 +23,6 @@ public class ForWhomPage {
     private WebDriverWait wait;
 
     public ForWhomPage(WebDriver driver) {
-
         this.driver = driver;
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(EnvConfig.EXPLICITY_TIMEOUT));
     }
@@ -30,25 +30,21 @@ public class ForWhomPage {
 
     //    Methods for filling out the form
     public void inputName(String name) {
-
         driver.findElement(inputName).sendKeys(name);
     }
 
 
     public void inputSurname(String surname) {
-
         driver.findElement(inputSurname).sendKeys(surname);
     }
 
 
     public void inputAddress(String address) {
-
         driver.findElement(inputAddress).sendKeys(address);
     }
 
 
     public void inputMetro(String metro) {
-
         WebElement input = wait.until(ExpectedConditions.elementToBeClickable(inputMetro));
         input.click();
         input.sendKeys(metro);
@@ -60,20 +56,17 @@ public class ForWhomPage {
 
 
     public void inputPhoneNumber(String phoneNumber) {
-
         driver.findElement(inputPhoneNumber).sendKeys(phoneNumber);
     }
 
 
     public AboutRentPage clickNextButton() {
-
         driver.findElement(nextButton).click();
         return new AboutRentPage(driver);
     }
 
 
     public void fillForm(String name, String surname, String address, String metro, String phoneNumber) {
-
         inputName(name);
         inputSurname(surname);
         inputAddress(address);

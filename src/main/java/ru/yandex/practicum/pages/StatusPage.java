@@ -18,13 +18,11 @@ public class StatusPage {
     private WebDriverWait wait;
 
     public StatusPage(WebDriver driver) {
-
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(EnvConfig.EXPLICITY_TIMEOUT));
     }
 
 
     public void checkErrorImage() {
-
         WebElement error = wait.until(ExpectedConditions
                 .visibilityOfElementLocated(orderFailed));
         Assert.assertTrue("Картинка ошибки не отображается", error.isDisplayed());

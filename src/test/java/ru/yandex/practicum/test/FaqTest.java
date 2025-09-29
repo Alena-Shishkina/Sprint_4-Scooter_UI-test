@@ -17,7 +17,6 @@ public class FaqTest {
     private final String expectedAnswersText;
 
     public FaqTest(int index, String expectedQuestionText, String expectedAnswersText) {
-
         this.index = index;
         this.expectedQuestionText = expectedQuestionText;
         this.expectedAnswersText = expectedAnswersText;
@@ -25,7 +24,6 @@ public class FaqTest {
 
     @Parameterized.Parameters(name = "Тестовые данные: {0}, вопрос: {1}, ответ: {2}")
     public static Object[][] getOrderForWhomPage() {
-
         return new Object[][]{
                 {0, "Сколько это стоит? И как оплатить?", "Сутки — 400 рублей. Оплата курьеру — наличными или картой."},
                 {1, "Хочу сразу несколько самокатов! Так можно?", "Пока что у нас так: один заказ — один самокат. Если хотите покататься с друзьями, можете просто сделать несколько заказов — один за другим."},
@@ -43,7 +41,6 @@ public class FaqTest {
 
     @Test
     public void testFaq() {
-
         WebDriver driver = factory.getDriver();
         var faqPage = new FaqPage(driver);
         var mainPage = new MainPage(driver);
