@@ -21,9 +21,9 @@ public class FaqPage {
     private final WebDriverWait wait;
 
     public FaqPage(WebDriver driver) {
+
         this.driver = driver;
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(EnvConfig.EXPLICITY_TIMEOUT));
-
     }
 
 
@@ -43,7 +43,6 @@ public class FaqPage {
 
         String actualAnswersText = answer.getText();
         Assert.assertEquals(expectedAnswersText, actualAnswersText);
-
     }
 
 }

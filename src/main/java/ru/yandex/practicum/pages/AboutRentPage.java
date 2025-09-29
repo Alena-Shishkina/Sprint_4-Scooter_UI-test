@@ -46,27 +46,23 @@ public class AboutRentPage {
 
         By clickRentalPeriod = (daySelection) ? oneDay : fourDays;
         driver.findElement(clickRentalPeriod).click();
-
     }
 
 
     public void clickBlackScooter(boolean colorSelection) {
         By clickScooterColor = (colorSelection) ? blackScooter : greyScooter;
         driver.findElement(clickScooterColor).click();
-
     }
 
 
     public void inputComments(String comments) {
         driver.findElement(inputComments).sendKeys(comments);
-
     }
 
 
     public PopapPage clickOrderButton() {
         driver.findElement(orderButton).click();
         return new PopapPage(driver);
-
     }
 
 
@@ -75,6 +71,5 @@ public class AboutRentPage {
         selectRentalPeriod(daySelection);
         clickBlackScooter(colorSelection);
         inputComments(comments);
-
     }
 }
