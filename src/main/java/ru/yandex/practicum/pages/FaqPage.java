@@ -13,6 +13,10 @@ import java.time.Duration;
 import java.util.List;
 
 public class FaqPage {
+
+    private final By questionLocator = By.cssSelector("div[id^='accordion__heading-']");
+    private final By answerLocator = By.cssSelector("div[id^='accordion__panel-']");
+
     private final WebDriver driver;
     private final WebDriverWait wait;
 
@@ -25,7 +29,7 @@ public class FaqPage {
 
     public void locatorFaq(int index, String expectedQuestionText, String expectedAnswersText) {
 
-        List<WebElement> questions = driver.findElements(By.cssSelector("div[id^='accordion__heading-']"));
+        List<WebElement> questions = driver.findElements(questionLocator);
         WebElement question = wait.until(ExpectedConditions.elementToBeClickable(questions.get(index)));
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", question);
 
@@ -34,7 +38,7 @@ public class FaqPage {
 
         question.click();
 
-        List<WebElement> answers = driver.findElements(By.cssSelector("div[id^='accordion__panel-']"));
+        List<WebElement> answers = driver.findElements(answerLocator);
         WebElement answer = wait.until(ExpectedConditions.visibilityOf(answers.get(index)));
 
         String actualAnswersText = answer.getText();

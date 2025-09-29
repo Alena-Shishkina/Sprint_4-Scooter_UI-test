@@ -22,7 +22,7 @@ public class FaqTest {
         this.expectedAnswersText = expectedAnswersText;
     }
 
-    @Parameterized.Parameters
+    @Parameterized.Parameters(name = "Тестовые данные: {0}, вопрос: {1}, ответ: {2}")
     public static Object[][] getOrderForWhomPage() {
         return new Object[][]{
                 {0, "Сколько это стоит? И как оплатить?", "Сутки — 400 рублей. Оплата курьеру — наличными или картой."},
