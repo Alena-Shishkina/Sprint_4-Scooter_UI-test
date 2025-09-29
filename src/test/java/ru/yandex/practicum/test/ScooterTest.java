@@ -12,7 +12,6 @@ public class ScooterTest {
 
     @Test
     public void testNonExistingOrderNotFound() {
-
         WebDriver driver = factory.getDriver();
         var mainPage = new MainPage(driver);
         mainPage.openMainPage();

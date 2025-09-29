@@ -21,14 +21,12 @@ public class FaqPage {
     private final WebDriverWait wait;
 
     public FaqPage(WebDriver driver) {
-
         this.driver = driver;
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(EnvConfig.EXPLICITY_TIMEOUT));
     }
 
 
     public void locatorFaq(int index, String expectedQuestionText, String expectedAnswersText) {
-
         List<WebElement> questions = driver.findElements(questionLocator);
         WebElement question = wait.until(ExpectedConditions.elementToBeClickable(questions.get(index)));
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", question);

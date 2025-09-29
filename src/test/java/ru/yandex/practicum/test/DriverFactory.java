@@ -13,12 +13,10 @@ public class DriverFactory extends ExternalResource {
     private WebDriver driver;
 
     public WebDriver getDriver() {
-
         return driver;
     }
 
     public void initDriver() {
-
         if ("firefox".equals(System.getProperty("browser"))) {
             startFirefox();
         } else {
@@ -27,26 +25,22 @@ public class DriverFactory extends ExternalResource {
     }
 
     private void startCrome() {
-
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(EnvConfig.IMPLICITY_TIMEOUT)); // неявное ожидание
         driver.manage().window().maximize();
     }
 
     private void startFirefox() {
-
         driver = new FirefoxDriver();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(EnvConfig.IMPLICITY_TIMEOUT)); // неявное ожидание
         driver.manage().window().maximize();
     }
 
     public void before() {
-
         initDriver();
     }
 
     public void after() {
-
         driver.quit();
     }
 }
