@@ -25,51 +25,51 @@ public class MainPage {
 
 
     public MainPage(WebDriver driver) {
+
         this.driver = driver;
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(EnvConfig.EXPLICITY_TIMEOUT));
-
     }
 
 
     //    Open main page
     public void openMainPage() {
-        driver.get(EnvConfig.BASE_URL);
 
+        driver.get(EnvConfig.BASE_URL);
     }
 
 
     //    Method main page
     public StatusPage clickOnGoButton() {
+
         wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(goButton));
         driver.findElement(goButton).click();
         return new StatusPage(driver);
-
     }
 
 
     public void enterOrderIn(String orderNumber) {
-        driver.findElement(orderIn).sendKeys(orderNumber);
 
+        driver.findElement(orderIn).sendKeys(orderNumber);
     }
 
 
     public void clickOnStatusButton() {
-        driver.findElement(statusButton).click();
 
+        driver.findElement(statusButton).click();
     }
 
 
     public void choiceOrderButton(boolean choiceOrderButton) {
+
         By orderButton = (choiceOrderButton) ? orderHeaderButton : orderHomeButton;
         WebElement button = wait.until(ExpectedConditions.elementToBeClickable(orderButton));
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", button);
         button.click();
-
     }
 
 
     public void clickCookie() {
-        driver.findElement(cookieButton).click();
 
+        driver.findElement(cookieButton).click();
     }
 }

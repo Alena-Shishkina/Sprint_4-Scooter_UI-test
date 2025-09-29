@@ -27,6 +27,7 @@ public class OrderTest {
 
 
     public OrderTest(boolean choiceOrderButton, String name, String surname, String address, String metro, String phoneNumber, String data, boolean daySelection, boolean colorSelection, String comments) {
+
         this.choiceOrderButton = choiceOrderButton;
         this.name = name;
         this.surname = surname;
@@ -41,6 +42,7 @@ public class OrderTest {
 
     @Parameterized.Parameters
     public static Object[][] getOrderForWhomPage() {
+
         return new Object[][]
                 {{
                         true,
