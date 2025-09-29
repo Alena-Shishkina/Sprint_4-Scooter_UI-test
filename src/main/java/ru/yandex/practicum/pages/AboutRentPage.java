@@ -32,6 +32,7 @@ public class AboutRentPage {
 
     //    Methods for filling out the form
     public void inputData(String day) {
+
         WebElement input = wait.until(ExpectedConditions.elementToBeClickable(inputData));
         input.click();
 
@@ -41,6 +42,7 @@ public class AboutRentPage {
     }
 
     public void selectRentalPeriod(boolean daySelection) {
+
         driver.findElement(inputRentalPeriod).click();
         wait.until(ExpectedConditions.elementToBeClickable(dropdownMenu));
 
@@ -50,23 +52,27 @@ public class AboutRentPage {
 
 
     public void clickBlackScooter(boolean colorSelection) {
+
         By clickScooterColor = (colorSelection) ? blackScooter : greyScooter;
         driver.findElement(clickScooterColor).click();
     }
 
 
     public void inputComments(String comments) {
+
         driver.findElement(inputComments).sendKeys(comments);
     }
 
 
     public PopapPage clickOrderButton() {
+
         driver.findElement(orderButton).click();
         return new PopapPage(driver);
     }
 
 
     public void rentForm(String data, boolean daySelection, boolean colorSelection, String comments) {
+
         inputData(data);
         selectRentalPeriod(daySelection);
         clickBlackScooter(colorSelection);
