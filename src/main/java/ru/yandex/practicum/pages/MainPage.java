@@ -35,6 +35,10 @@ public class MainPage {
         driver.get(EnvConfig.BASE_URL);
     }
 
+    public void clickOrderButton(){
+        driver.findElement(orderHeaderButton).click();
+    }
+
 
     //    Method main page
     public StatusPage clickOnGoButton() {
