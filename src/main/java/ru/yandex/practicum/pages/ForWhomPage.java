@@ -2,11 +2,9 @@ package ru.yandex.practicum.pages;
 
 import org.junit.Assert;
 import org.openqa.selenium.*;
-import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import ru.yandex.practicum.pages.util.EnvConfig;
-
 import java.time.Duration;
 import java.util.Map;
 
@@ -35,7 +33,7 @@ public class ForWhomPage {
     );
 
     private final WebDriver driver;
-    private WebDriverWait wait;
+    private final WebDriverWait wait;
 
     public ForWhomPage(WebDriver driver) {
         this.driver = driver;
@@ -45,14 +43,17 @@ public class ForWhomPage {
 
     //    Methods for filling out the form
     public void inputName(String name) {
+
         driver.findElement(inputName).sendKeys(name);
     }
 
     public void inputSurname(String surname) {
+
         driver.findElement(inputSurname).sendKeys(surname);
     }
 
     public void inputAddress(String address) {
+
         driver.findElement(inputAddress).sendKeys(address);
     }
 
@@ -67,6 +68,7 @@ public class ForWhomPage {
     }
 
     public void inputPhoneNumber(String phoneNumber) {
+
         driver.findElement(inputPhoneNumber).sendKeys(phoneNumber);
     }
 
@@ -84,7 +86,7 @@ public class ForWhomPage {
     }
 
 
-    //    Check error message name
+    //    Check error message
     public void checkFieldValidationName(String inValid, String expectedError) {
         WebElement input = wait.until(ExpectedConditions.elementToBeClickable(inputName));
         input.sendKeys(inValid);
@@ -134,7 +136,7 @@ public class ForWhomPage {
         Assert.assertEquals(expectedError, errorMessage.getText());
     }
 
-
+//    End to end check error message
     public void endToEndCheckFieldValidation() {
 
         WebElement input = wait.until(ExpectedConditions.elementToBeClickable(nextButton));

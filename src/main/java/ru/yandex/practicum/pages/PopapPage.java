@@ -16,11 +16,9 @@ public class PopapPage {
         this.driver = driver;
     }
 
-
     public void clickButtonYes() {
         driver.findElement(buttonYes).click();
     }
-
 
     public void checkConfirmation() {
         Assert.assertTrue(driver.findElement(confirmation).isDisplayed());

@@ -29,7 +29,6 @@ public class MainPage {
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(EnvConfig.EXPLICITY_TIMEOUT));
     }
 
-
     //    Open main page
     public void openMainPage() {
         driver.get(EnvConfig.BASE_URL);
@@ -39,7 +38,6 @@ public class MainPage {
         driver.findElement(orderHeaderButton).click();
     }
 
-
     //    Method main page
     public StatusPage clickOnGoButton() {
         wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(goButton));
@@ -47,16 +45,13 @@ public class MainPage {
         return new StatusPage(driver);
     }
 
-
     public void enterOrderIn(String orderNumber) {
         driver.findElement(orderIn).sendKeys(orderNumber);
     }
 
-
     public void clickOnStatusButton() {
         driver.findElement(statusButton).click();
     }
-
 
     public void choiceOrderButton(boolean choiceOrderButton) {
         By orderButton = (choiceOrderButton) ? orderHeaderButton : orderHomeButton;
@@ -64,7 +59,6 @@ public class MainPage {
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", button);
         button.click();
     }
-
 
     public void clickCookie() {
         driver.findElement(cookieButton).click();
