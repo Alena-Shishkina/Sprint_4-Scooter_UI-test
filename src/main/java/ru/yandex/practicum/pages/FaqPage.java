@@ -25,8 +25,7 @@ public class FaqPage {
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(EnvConfig.EXPLICITY_TIMEOUT));
     }
 
-
-    public void locatorFaq(int index, String expectedQuestionText, String expectedAnswersText) {
+    public void setQuestionLocator(int index, String expectedQuestionText) {
         List<WebElement> questions = driver.findElements(questionLocator);
         WebElement question = wait.until(ExpectedConditions.elementToBeClickable(questions.get(index)));
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", question);
@@ -35,12 +34,13 @@ public class FaqPage {
         Assert.assertEquals(expectedQuestionText, actualQuestionText);
 
         question.click();
+    }
 
+    public void setAnswerLocator(int index, String expectedAnswersText) {
         List<WebElement> answers = driver.findElements(answerLocator);
         WebElement answer = wait.until(ExpectedConditions.visibilityOf(answers.get(index)));
 
         String actualAnswersText = answer.getText();
         Assert.assertEquals(expectedAnswersText, actualAnswersText);
     }
-
 }

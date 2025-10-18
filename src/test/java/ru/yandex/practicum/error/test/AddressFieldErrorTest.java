@@ -22,7 +22,7 @@ public class AddressFieldErrorTest {
         this.expectedErrorMessage = expectedErrorMessage;
     }
 
-    @Parameterized.Parameters
+    @Parameterized.Parameters(name = "Тестовые данные: {0}, сообщение об ошибке: {1}")
     public static Object[][] getAddressFieldErrorForWhomPage() {
         return new Object[][]{
                 {" ", "Введите корректный адрес"},
