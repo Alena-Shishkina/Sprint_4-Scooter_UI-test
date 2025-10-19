@@ -6,19 +6,20 @@ import ru.yandex.practicum.pages.ForWhomPage;
 import ru.yandex.practicum.pages.MainPage;
 import ru.yandex.practicum.test.DriverFactory;
 
-public class EndToEndFormTest {
+public class EndToEndForWhomTest {
 
     @Rule
     public DriverFactory factory = new DriverFactory();
 
     @Test
-    public void testEndToEndForm() {
+    public void testEndToEndForWhom() {
         WebDriver driver = factory.getDriver();
         var mainPage = new MainPage(driver);
         var forWhomPage = new ForWhomPage(driver);
         mainPage.openMainPage();
         mainPage.clickCookie();
         mainPage.clickOrderButton();
-        forWhomPage.endToEndCheckFieldValidation();
+        forWhomPage.endToEndCheckFieldValidationForWhomPage();
+
     }
 }

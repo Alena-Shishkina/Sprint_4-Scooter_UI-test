@@ -1,5 +1,6 @@
 package ru.yandex.practicum.pages;
 
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -21,6 +22,7 @@ public class AboutRentPage {
     private final By greyScooter = By.cssSelector(".Checkbox_Input__14A2w[id='grey']");
     private final By inputComments = By.cssSelector("input[placeholder='Комментарий для курьера']");
     private final By orderButton = By.xpath("//button[@class = 'Button_Button__ra12g Button_Middle__1CSJM' and text() = 'Заказать']");
+    private final By buttonYes = By.xpath("//button[@class = 'Button_Button__ra12g Button_Middle__1CSJM' and text() = 'Да']");
 
     private final WebDriver driver;
     private WebDriverWait wait;
@@ -67,5 +69,12 @@ public class AboutRentPage {
         selectRentalPeriod(daySelection);
         clickBlackScooter(colorSelection);
         inputComments(comments);
+    }
+
+    public void endToEndCheckFieldValidationAboutRentPage() {
+        WebElement input = wait.until(ExpectedConditions.elementToBeClickable(orderButton));
+        input.click();
+        boolean isInvisible = wait.until(ExpectedConditions.invisibilityOfElementLocated(buttonYes));
+        Assert.assertTrue("Элемент не должен был появиться", isInvisible);
     }
 }
