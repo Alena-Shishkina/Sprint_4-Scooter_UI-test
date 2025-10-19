@@ -34,7 +34,7 @@ public class MainPage {
         driver.get(EnvConfig.BASE_URL);
     }
 
-    public void clickOrderButton(){
+    public void clickOrderButton() {
         driver.findElement(orderHeaderButton).click();
     }
 

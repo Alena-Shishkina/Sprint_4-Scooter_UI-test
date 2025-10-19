@@ -7,6 +7,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import ru.yandex.practicum.pages.util.EnvConfig;
 import java.time.Duration;
 import java.util.Map;
+import static org.junit.Assert.assertEquals;
 
 public class ForWhomPage {
 
@@ -103,7 +104,7 @@ public class ForWhomPage {
         input.sendKeys(Keys.TAB);
 
         WebElement errorMessage = wait.until(ExpectedConditions.visibilityOfElementLocated(errorSurname));
-        Assert.assertEquals(expectedError, errorMessage.getText());
+        assertEquals(expectedError, errorMessage.getText());
     }
 
     //    Check error message address
@@ -113,7 +114,7 @@ public class ForWhomPage {
         input.sendKeys(Keys.TAB);
 
         WebElement errorMessage = wait.until(ExpectedConditions.visibilityOfElementLocated(errorAddress));
-        Assert.assertEquals(expectedError, errorMessage.getText());
+        assertEquals(expectedError, errorMessage.getText());
     }
 
     //    Check error message metro
@@ -123,7 +124,7 @@ public class ForWhomPage {
         input.sendKeys(Keys.TAB);
 
         WebElement errorMessage = wait.until(ExpectedConditions.visibilityOfElementLocated(errorMetro));
-        Assert.assertEquals(expectedError, errorMessage.getText());
+        assertEquals(expectedError, errorMessage.getText());
     }
 
     //    Check error message phone number
@@ -133,11 +134,11 @@ public class ForWhomPage {
         input.sendKeys(Keys.TAB);
 
         WebElement errorMessage = wait.until(ExpectedConditions.visibilityOfElementLocated(errorPhoneNumber));
-        Assert.assertEquals(expectedError, errorMessage.getText());
+        assertEquals(expectedError, errorMessage.getText());
     }
 
-//    End to end check error message
-    public void endToEndCheckFieldValidation() {
+    //    End to end check error message
+    public void endToEndCheckFieldValidationForWhomPage() {
 
         WebElement input = wait.until(ExpectedConditions.elementToBeClickable(nextButton));
         input.click();
